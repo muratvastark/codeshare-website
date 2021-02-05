@@ -6,7 +6,7 @@ moment.locale('tr');
 
 module.exports = (client) => {
     router.get("/", async (req, res) => {
-        let codes = await client.database.models.codes.find({ codeCategory: "altin" }).sort('-uploadDate').exec() || [];
+        let codes = await client.database.models.codes.find({ codeCategory: "sizdengelenler" }).sort('-uploadDate').exec() || [];
 
 		let users = {};
         codes = await Promise.all(codes.map(async code => {
@@ -31,14 +31,13 @@ module.exports = (client) => {
             };
         }));
 
-
         res.render("kodlar", {
             client,
             user: req.user,
             brand: client.guilds.cache.get(client.config.other.guildID).iconURL({ dynamic: true }),
             guildName: client.guilds.cache.get(client.config.other.guildID).name,
-            title: "Altın Kodlar",
-            color: "ffcc00",
+            title: "Sizden Gelenler",
+            color: "7289da",
             codes: codes
         });
     });
@@ -46,8 +45,7 @@ module.exports = (client) => {
     router.use(static(__dirname + "/../public"));
 
     router.get("/:id", async (req, res) => {
-        let member = client.guilds.cache.get(client.config.other.guildID).members.cache.get(req.user.id);
-        if (!req.user || !member) {
+        if (!req.user || !client.guilds.cache.get(client.config.other.guildID).members.cache.has(req.user.id)) {
             return res.redirect(format({
                 pathname: "/hata",
                 query: {
@@ -59,22 +57,9 @@ module.exports = (client) => {
 
         let id = req.params.id
         if (!id) return res.redirect("/");
-        let booster = member.roles.cache.has(client.config.roles.booster);
-        let gold = member.roles.cache.has(client.config.roles.gold);
-        let owner = member.roles.cache.has(client.config.roles.owner);
-        if (!booster && !gold && !owner) {
-            return res.redirect(format({
-                pathname: "/hata",
-                query: {
-                    statuscode: 401,
-                    message: "Altın Kodları görebilmek için Discord sunucumuzda 'Altın Kodlar' rolüne sahip olmalısınız."
-                }
-            }));
-        }
-
         let code = await client.database.models.codes.findOne({
             codeID: id,
-            codeCategory: "altin"
+            codeCategory: "sizdengelenler"
         });
 
         if (!code) {
@@ -82,15 +67,15 @@ module.exports = (client) => {
                 pathname: "/hata",
                 query: {
                     statuscode: 404,
-                    message: `Altın Kodlar kategorisinde "${id}" ID'sine sahip bir kod bulunamadı.`
+                    message: `Sizden Gelenler kategorisinde "${id}" ID'sine sahip bir kod bulunamadı.`
                 }
             }));
         }
-        let authors = code.codeAuthors || [];
 
+        let authors = code.codeAuthors || [];
         code = {
             codeID: code.codeID,
-            codeAuthors: code.codeAuthors.length > 0 ? authors.map(async x => (await client.users.fetch(x)).tag) : ["Yok."],
+            codeAuthors: code.codeAuthors.length > 0 ? authors.filter(x => client.users.cache.has(x)).map(x => client.users.cache.get(x).username) : ["Yok."],
             codeModules: code.codeModules,
             codeCategory: code.codeCategory,
             codeCommand: code.codeCommand == "-" ? false : code.codeCommand,
@@ -106,7 +91,7 @@ module.exports = (client) => {
             brand: client.guilds.cache.get(client.config.other.guildID).iconURL({ dynamic: true }),
             guildName: client.guilds.cache.get(client.config.other.guildID).name,
             code: code,
-            delete: code.sharerID === req.user.id ? true : false
+            delete: code.sharerID === req.user.id ? false : true
         });
     });
 
