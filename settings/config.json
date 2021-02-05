@@ -1,0 +1,37 @@
+{
+    "bot": {
+        "token": "",
+        "id": "",
+        "scopes": ["identify", "guilds"],
+        "secret": "",
+        "callbackURI": ""
+    },
+    "databaseURI": "",
+    "webhook": {
+        "id": "",
+        "token": ""
+    },
+    "roles": {
+        "owner": "",
+        "sharer": "",
+        "staff": "",
+        "sponsor": "",
+        "booster": "",
+        "preparedsystems": "",
+        "diamond": "",
+        "gold": "",
+        "normal": ""
+    },
+    "other": {
+        "guildInvite": "",
+        "guildID": "",
+        "sitePort": 80,
+        "siteURL": "",
+        "loginLog": ""
+    },
+    "social": {
+        "instagram": "https://www.instagram.com/serendiasquad/",
+        "twitter": "https://twitter.com/SerendiaSquad/",
+        "github": "https://github.com/serendiasquad/"
+    }
+}
