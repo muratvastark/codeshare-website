@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="HandheldFriendly" content="true">
+    <meta name="name" content="{{guildName}}">
+    <meta name="description" content="Topluluk & Bot Yardım - Kod Paylaşım | {{inviteURL}}">
+    <meta property="og:url" content="{{siteURL}}">
+    <meta property="og:title" content="{{guildName}}">
+    <meta property="og:description" content="Topluluk & Bot Yardım - Kod Paylaşım | {{inviteURL}}">
+    <meta property="og:image" content="{{brand2}}">
+    <meta name="keywords"
+        content="Code, Discord, Code Sharing, Discord Bot Kodları, {{guildName}}, Yashinu, Muratva Stark, Alosha">
+    <meta name="copyright" content="Muratva Stark">
+    <meta name="author" content="Muratva Stark">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{brand}}" type="image/x-icon">
+    <link rel="stylesheet" href="/css/roboto.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body style="background-color: #161616!important;">
+    <div class="preloader">
+        <img src="/img/preloader.gif" alt="preloader" class="centered">
+    </div>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #111111!important;">
+        <a class="navbar-brand" href="/">
+            <img src="{{brand}}" width="30" height="30" class="d-inline-block align-top" style="border-radius: 20%;">
+            {{guildName}}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" style="border:none">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Ana Sayfa</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bilgilendirme">Bilgilendirme</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ozeluyeler">Özel Üyeler</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/discord">Sunucumuz</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Kodlar
+                    </a>
+                    <div class="dropdown-menu"
+                        style="background-color: #111111!important;border: 0px; border-radius: 0.0rem; "
+                        aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item " href="/normal" style="color: white;"> Normal Kodlar</a>
+                        <a class="dropdown-item " href="/altin" style="color: #ffcc00;"> Altın Kodlar</a>
+                        <a class="dropdown-item" href="/elmas" style="color: #00e6e6;"> Elmas Kodlar</a>
+                        <a class="dropdown-item" href="/hazirsistemler" style="color: #ff4d4d;"> Hazır Sistemler</a>
+                        <div class="dropdown-divider" style="border-top:1px solid #323232;"></div>
+                        <a class="dropdown-item" href="/sizdengelenler" style="color: #7289da;"> Sizden gelenler</a>
+                    </div>
+                </li>
+            </ul>
+            {{#if user}}
+            <a class="starkbutton btn-info" style="text-decoration: none;" href="/users/{{user.id}}"><i
+                    class="fas fa-user" style="color: white"></i> {{user.username}}</a>
+            {{else}}
+            <a class="starkbutton btn-danger" style="text-decoration: none;" href="/giris"><i
+                    class="fas fa-sign-in-alt"></i> Giriş Yap</a>
+            {{/if}}
+        </div>
+    </nav>
+
+    {{{body}}}
+
+    <footer>
+        <div class="container text-light">
+            <div class="row text-light">
+                <div class="col d-flex justify-content-between mb-2 mt-5">
+                    <div class="signature">
+                        <p>Made with <i class="much-heart"></i> by <a
+                                href="https://discordapp.com/users/470974660264067072">Muratva
+                                Stark</a> - Sponsored by <a href="https://redoya.net/">Redoya.NET</a>
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</body>
+
+</html>
