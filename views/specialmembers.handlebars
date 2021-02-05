@@ -1,0 +1,51 @@
+<title>{{guildName}} - Special Members</title>
+<main class="text-light">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    <br />
+    <div class="container">
+        <h1
+            style="margin-right: 30px;text-align:center;font-size: 2.2em;text-decoration: none; font-weight: bold; color: white;">
+            Yetkililer</h1>
+        <hr style="background-color: white;height: 2px; ">
+        <div class="row" style="margin-left: 20px;">
+            <div class="col">
+                {{#each staffs}}
+
+                <div class="profile"
+                    style="background: linear-gradient(-35deg, rgba(49, 253, 219, 0.5) 20%, rgb(47, 208, 229) 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="{{this.username}}">{{this.username}}</h1>
+                        <h2>{{this.highestRole}}</h2>
+                    </div>
+                    <div class="profile-avatar"><span class="{{this.status}}"></span><img src="{{this.avatarURL}}">
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <h1
+            style="margin-right: 30px;text-align:center;font-size: 2.2em;text-decoration: none; font-weight: bold; color: white;">
+            Destekçiler</h1>
+        <hr style="background-color: white;height: 2px; ">
+        <div class="row" style="margin-left: 3px;">
+            <div class="col">
+                {{#each s}}
+                <div class="profile"
+                    style="-moz-user-select: none;-ms-user-select: none;user-select: none;background: linear-gradient(-35deg, {{this.background}} 130%); box-shadow: transparent 0px 2px 52px 0px;">
+                    <div class="profile-details">
+                        <h1 title="{{this.username}}">{{this.username}}</h1>
+                        <h2>{{this.desc}}</h2>
+                    </div>
+                    <div class="profile-avatar"><span class="{{this.status}}"></span><img src="{{this.avatarURL}}">
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,32 @@
+<title>{{guildName}} - Kod Paylaş</title>
+<main class="text-light">
+    <div class="container" style="margin-top:30px">
+        <div>
+            <form action="paylas" method="POST">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="name" placeholder="Kodun Adı" required>
+                    <div class="input-group-append">
+                        <select class="custom-select text-white" style="background-color:#111111" name="rank"
+                            id="rank_choice" required>
+                            <option value="normal">Normal</option>
+                            <option value="altin">Altın</option>
+                            <option value="elmas">Elmas</option>
+                            <option value="hazirsistemler">Hazır Sistemler</option>
+                            <option value="sizdengelenler">Sizden Gelenler</option>
+                        </select>
+                    </div>
+                </div><br>
+                <input type="text" class="form-control" name="description" placeholder="Kodun Açıklaması" required><br>
+                <input type="text" class="form-control" name="authors" placeholder="Yapan kişiler"><br>
+                <input type="text" class="form-control" name="modules" placeholder="Modüller"><br>
+                <p class="h3">Kodun Main Dosyası Buraya:</p>
+                <textarea class="form-control" name="mainFile" id="mainFile" rows="10"
+                    placeholder="Kodunuzun Main Dosyasını Buraya Girin" required></textarea>
+                <p class="h3">Komutlar Klasörüne Atılacak Dosya Buraya:</p>
+                <textarea class="form-control" name="commandsFile" id="commandsFile" rows="10"
+                    placeholder="Komutlar Klasörüne Atılacak Dosya Buraya" required></textarea><br>
+                <button type="submit" class="btn btn-outline-primary btn-lg">Gönder</button>
+            </form>
+        </div>
+    </div>
+</main>

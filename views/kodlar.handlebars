@@ -1,0 +1,49 @@
+<title>{{guildName}} - {{title}}</title>
+<main class="text-light">
+    <div class="text-center" style="padding: 1.5rem;">
+        <h1 style="font-weight: bold;color: #{{color}};">{{title}}</h1>
+    </div>
+    <div class="container">
+        <input id="search" type="text" class="form-control" placeholder="Kod Ara" aria-label="Kod Ara"
+            aria-describedby="basic-addon2">
+        <br>
+        <div id="codes" class="row row-cols-1 row-cols-md-4 center">
+            {{#each codes}}
+            <div class="container">
+                <div class="col mb-1">
+                    <div class="card"
+                        style="width: 262px;height:270px;background-color: #111111;margin-bottom: 20px;overflow: hidden; text-overflow:ellipsis;">
+                        <h5 class="card-header" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                            {{this.codeName}}</h5>
+                        <div class="card-body">
+                            <span class="card-text text-box">
+                                {{this.codeDesc}}
+                            </span>
+                        </div>
+                        <div class="card-footer">
+                            <p style="margin-left: -5px;"><img src="{{this.sharer.avatar}}">
+                                {{this.sharer.username}}</p>
+                            <a href="/{{this.codeCategory}}/{{this.codeID}}" class="starkbutton btn-success"
+                                style="text-decoration: none;margin-top: -43px;">İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+<script>
+    let begin = 0
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            var value = $(this).val().toLowerCase();
+
+            $(".card, .mb-3").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

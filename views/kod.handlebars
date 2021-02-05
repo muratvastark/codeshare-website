@@ -1,0 +1,96 @@
+<title>{{guildName}} - {{code.name}}</title>
+<main class="text-light container">
+    <div class="darkbox" style="margin-top: 20px">
+        <h4><strong>{{code.codeName}}</strong></h4>
+        <p>{{code.codeDesc}}</p>
+        <div><a><i class="fas fa-user" style="margin-right:10px"></i></a>{{code.sharerID}}</div>
+        <div><a><i class="fas fa-users" style="margin-right:10px"></i></a>
+            {{#each code.codeAuthors}}
+            <span>{{this}}</span>
+            {{/each}}</div>
+        <div><a><i class="fas fa-calendar" style="margin-right:10px"></i></a>{{code.uploadDate}}</div>
+        <div><a><i class="fas fa-file-download" style="margin-right:10px"></i></a>
+            {{#each code.codeModules}}
+            <span class="badge badge-light">{{this}}</span>
+            {{/each}}
+        </div>
+    </div>
+    <h1 class="text-center font-weight-bolder" style="padding: 1.5rem; color: #7289da;">
+        {{code.name}}
+    </h1>
+    <h5 class="text-center text-light font-weight-light">
+        {{code.description}}
+    </h5>
+    <hr>
+    {{#if code.codeMain }}
+    <h5>Main Dosya</h5>
+    <div class="container" style="margin: 20px">
+        <textarea id="config" spellcheck="false" rows="9"
+            style="background-color: #111111; width: 100%; color: #97EDDC; "
+            onclick="this.focus();this.select();document.execCommand('copy');doFade();" readonly>
+{{code.codeMain}}
+</textarea>
+    </div>
+    {{/if}}
+    {{#if code.codeCommand }}
+
+    <h5>Komutlar Klasörü</h5>
+    <div class="container" style="margin: 20px">
+        <textarea id="config" spellcheck="false" rows="9"
+            style="background-color: #111111; width: 100%; color: #97EDDC; "
+            onclick="this.focus();this.select();document.execCommand('copy');doFade();" readonly>
+{{code.codeCommand}}
+</textarea>
+        {{/if}}
+
+        <button id="copyied" style="float: right; display: none; margin:3px;" type="button" class="btn btn-success"><i
+                style="color: white" class="fa fa-check" aria-hidden="true"></i>
+            Kopyalandı!</button>
+    </div>
+    {{#if delete}}
+        <a href="/kod/sil/{{code.codeCategory}}/{{code.codeID}}" class="btn btn-outline-danger btn-lg"
+            style="margin: 1rem;">
+            Kodu Sil
+        </a>
+    {{/if}}
+</main>
+
+<style>
+    textarea:focus {
+        outline: none;
+    }
+
+    textarea {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        resize: none;
+        border: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        overflow: auto;
+        resize: none;
+    }
+
+    .info div {
+        display: flex;
+        justify-content: space-between;
+        white-space: nowrap;
+        padding-left: 1em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .darkbox a {
+        opacity: 0.7
+    }
+
+    .darkbox a:hover {
+        transition-property: opacity;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+
+    }
+</style>

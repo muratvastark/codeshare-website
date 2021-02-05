@@ -1,0 +1,22 @@
+<title>{{guildName}} - Ana Sayfa</title>
+<main class="text-center text-light"
+        style="display: flex;min-height: calc(100vh - 188px);align-items: center; justify-content: center">
+        <div>
+                <h1 style="font-weight: bold; color: #00ce93;">{{guildName}}</h1>
+                <h4>Topluluk & Bot Yardım - Kod Paylaşım </h4>
+                <br />
+                <a type="button" href="{{instagram}}" target="_blank" class="btn btn-light"><i style="color:black"
+                                class="fab fa-instagram"></i> İnstagram</a>
+                <a type="button" href="{{twitter}}" target="_blank" class="btn btn-light"><i style="color:black"
+                                class="fab fa-twitter"></i> Twitter</a>
+                <a type="button" href="{{github}}" target="_blank" class="btn btn-light"><i style="color:black"
+                                class="fab fa-github"></i> Github</a>
+                {{#if user}}
+                <br>
+                <br>
+                <a type="button" href="/kod/paylas" target="_blank" class="btn btn-warning"><i class="fas fa-plus"></i>
+                        Kod Paylaş</a>
+                {{/if}}
+        </div>
+
+</main>

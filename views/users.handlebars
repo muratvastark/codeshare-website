@@ -1,0 +1,21 @@
+<title>{{guildName}} - Ana Sayfa</title>
+<main class="text-center text-light">
+    <div style="background-color: #111111">
+        <div style="padding:30px">
+            <div class="avatar"><img src="{{profile.avatar}}"></div>
+            <h2 style="margin-top: 10px"><strong>{{profile.name}}</strong></h2>
+        </div>
+    </div>
+</main>
+
+<style>
+    .avatar img {
+        width: 150px;
+        border-radius: 100%;
+        transition: border-radius 0.2s;
+    }
+
+    .avatar img:hover {
+        border-radius: 1rem;
+    }
+</style>
